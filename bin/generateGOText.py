@@ -43,11 +43,12 @@ import re
 TAB = '\t'
 NL = '\n'
 
-TEXT_HEADER = 'Automated description from the Alliance of Genome Resources (Release 3.2)'
-NO_DESC = 'No description available'
-
 inFile = os.environ['INPUT_FILE']
 outFile = os.environ['GOTEXT_FILE']
+releaseNum = os.environ['ALLIANCE_RELEASE']
+
+TEXT_HEADER = 'Automated description from the Alliance of Genome Resources (Release ' + releaseNum + ')'
+NO_DESC = 'No description available'
 
 #
 # Open input/output files.
