@@ -1,0 +1,39 @@
+#!/bin/sh
+
+#
+# Configuration.default
+#
+
+#
+#  If the MGICONFIG environment variable does not have a local override,
+#  use the default "live" settings.
+#
+if [ "${MGICONFIG}" = "" ]
+then
+    MGICONFIG=/usr/local/mgi/live/mgiconfig
+    export MGICONFIG
+fi
+
+. ${MGICONFIG}/master.config.sh
+
+#
+# Directory paths
+#
+FILEDIR=${DATALOADSOUTPUT}/go/gotextload
+INPUTDIR=${FILEDIR}/input
+OUTPUTDIR=${FILEDIR}/output
+LOGDIR=${FILEDIR}/logs
+
+export FILEDIR INPUTDIR OUTPUTDIR LOGDIR
+
+#
+# Input/Output files
+#
+#INFILE_PATH=${DATADOWNLOADS}/GENE-DESCRIPTION-TXT/MGI/GENE-DESCRIPTION-TXT_MGI_9.txt.gz
+ZIPFILE_PATH=$HOME/GENE-DESCRIPTION-TXT_MGI_9.txt.gz
+ZIPFILE_NAME=`basename ${ZIPFILE_PATH}`
+INPUT_FILE=`echo ${ZIPFILE_NAME} | sed 's/\.gz//'`
+GOTEXT_FILE=${INPUTDIR}/gotext.txt
+LOGFILE=${LOGDIR}/gotextload.log
+
+export ZIPFILE_PATH ZIPFILE_NAME INPUT_FILE  GOTEXT_FILE LOGFILE

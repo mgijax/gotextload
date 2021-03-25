@@ -1,0 +1,27 @@
+#!/bin/sh
+
+#
+# Install
+#
+cd `dirname $0`
+. ./Configuration
+
+if [ ! -d ${FILEDIR} ]
+then
+    mkdir -p ${FILEDIR}
+fi
+
+if [ ! -d ${INPUTDIR} ]
+then
+    mkdir -p ${INPUTDIR}
+fi
+
+if [ ! -d ${OUTPUTDIR} ]
+then
+    mkdir -p ${OUTPUTDIR}
+fi
+
+if [ ! -d ${LOGDIR} ]
+then
+    mkdir -p ${LOGDIR}
+fi
