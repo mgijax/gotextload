@@ -1,3 +1,10 @@
+TAG: gotextload-6-0-17-1
+DATE: 09/13/2021
+STAFF: dbm
+CHANGES:
+1) Configuration.default: Remove ALLIANCE_RELEASE setting
+2) bin/gotextload.sh: Parse alliance release number from input file
+
 TAG: gotextload-6-0-16-2
 TAG: gotextload-6-0-16-1
 DATE: 04/05/2021
