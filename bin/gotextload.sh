@@ -68,6 +68,23 @@ else
 fi
 
 #
+# Get the Alliance release number from the input file.
+#
+echo "" >> ${LOGFILE}
+date >> ${LOGFILE}
+echo "Get the Alliance release number from the input file" | tee -a ${LOGFILE}
+ALLIANCE_RELEASE=`cat ${INPUT_FILE} | grep "# Alliance Database Version:" | cut -d':' -f2 | sed 's/ //g'`
+if [ "${ALLIANCE_RELEASE}" == "" ]
+then
+    echo "Cannot determine Alliance release number" | tee -a ${LOGFILE}
+    date >> ${LOGFILE}
+    exit 1
+fi
+
+echo "Alliance release number: ${ALLIANCE_RELEASE}" | tee -a ${LOGFILE}
+export ALLIANCE_RELEASE
+
+#
 # Generate the GO text input file from the Alliance file.
 #
 echo "" >> ${LOGFILE}
